@@ -136,7 +136,9 @@
 
                             nv.addGraph(function() {
                                 // Update the chart when window resizes
-                                scope.chart.resizeHandler = nv.utils.windowResize(function() { scope.chart.update(); });
+                                if (scope.chart) {
+                                  scope.chart.resizeHandler = nv.utils.windowResize(function() { scope.chart.update(); });
+                                }
                                 return scope.chart;
                             }, options.chart['callback']);
                         },

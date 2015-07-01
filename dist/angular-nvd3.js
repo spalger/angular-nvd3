@@ -1,5 +1,5 @@
 /**************************************************************************
-* AngularJS-nvD3, v1.0.0-beta; MIT License; 25/02/2015 22:27
+* AngularJS-nvD3, v1.0.0-beta; MIT License; 01/07/2015 14:49
 * http://krispo.github.io/angular-nvd3
 **************************************************************************/
 (function(){
@@ -140,7 +140,9 @@
 
                             nv.addGraph(function() {
                                 // Update the chart when window resizes
-                                scope.chart.resizeHandler = nv.utils.windowResize(function() { scope.chart.update(); });
+                                if (scope.chart) {
+                                  scope.chart.resizeHandler = nv.utils.windowResize(function() { scope.chart.update(); });
+                                }
                                 return scope.chart;
                             }, options.chart['callback']);
                         },
